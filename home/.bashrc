@@ -101,7 +101,12 @@ On_IWhite='\e[0;107m'   # White
 test -s ~/.alias && . ~/.alias || true
 eval "$(rbenv init -)"
 source $HOME/.git-prompt.sh
-PS1="\[$Green\]\t\[$Red\]-\[$Blue\]\u\[$Yellow\]\[$Yellow\]\w\[\033[m\]\[$Magenta\]\$(__git_ps1)\[$Black\]\n\$ "
+if [[ $(tty) == *pts* ]]
+then
+  PS1="\[$Green\]\t\[$Red\]-\[$BBlue\]\u\[$Yellow\]\[$Yellow\]\w\[\033[m\]\[$Magenta\]\$(__git_ps1)\[$Black\]\n\$ "
+else
+  PS1="\[$Green\]\t\[$Red\]-\[$BBlue\]\u\[$Yellow\]\[$Yellow\]\w\[\033[m\]\[$Magenta\]\$(__git_ps1)\[$White\]\n\$ "
+fi
 
 # Map Caps Lock To ESC
 setxkbmap -option caps:escape
