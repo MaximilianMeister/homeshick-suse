@@ -115,3 +115,5 @@ source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
 
 alias isc="osc -A int"
+
+PATH=$PATH:~/bin
